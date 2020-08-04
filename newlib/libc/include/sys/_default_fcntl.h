@@ -234,6 +234,9 @@ extern int _open64 (const char *, int, ...);
 #endif
 #endif
 
+// A workaround for https://github.com/riscv/riscv-gnu-toolchain/issues/510
+#include <sys/_default_fcntl_override.h>
+
 #ifdef __cplusplus
 }
 #endif
