@@ -2358,7 +2358,7 @@ Void_t* mALLOc(RARG bytes) RDECL size_t bytes;
   INTERNAL_SIZE_T nb  = request2size(bytes);  /* padded request size; */
 
   /* Check for overflow and just fail, if so. */
-  if (nb > INT_MAX || nb < bytes)
+  if (nb > __SIZE_MAX__ || nb < bytes)
   {
     RERRNO = ENOMEM;
     return 0;
@@ -2824,7 +2824,7 @@ Void_t* rEALLOc(RARG oldmem, bytes) RDECL Void_t* oldmem; size_t bytes;
   nb = request2size(bytes);
 
   /* Check for overflow and just fail, if so. */
-  if (nb > INT_MAX || nb < bytes)
+  if (nb > __SIZE_MAX__ || nb < bytes)
   {
     RERRNO = ENOMEM;
     return 0;
